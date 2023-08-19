@@ -1,7 +1,13 @@
 const mongoose = require("mongoose");
 
 const productSchema = mongoose.Schema({
-  name: {
+
+  categoryId:{
+    type:String,
+    required:[true]
+
+  },
+  title: {
     type: String,
     required: [true, "Please Enter product Name"],
     trim: true,
@@ -15,67 +21,59 @@ const productSchema = mongoose.Schema({
     required: [true, "Please Enter product Price"],
     maxLength: [8, "Price cannot exceed 8 characters"],
   },
-  ratings: {
+  availability: {
     type: Number,
-    default: 0,
-  },
-  images: [
-    {
-      public_id: {
-        type: String,
-        required: true,
-      },
-      url: {
-        type: String,
-        required: true,
-      },
-    },
-  ],
-  category: {
-    type: String,
-    required: [true, "Please Enter Product Category"],
-  },
-  Stock: {
-    type: Number,
-    required: [true, "Please Enter product Stock"],
-    maxLength: [4, "Stock cannot exceed 4 characters"],
-    default: 1,
-  },
-  numOfReviews: {
-    type: Number,
-    default: 0,
-  },
-  reviews: [
-    {
-      user: {
-        type: mongoose.Schema.ObjectId,
-        ref: "User",
-        required: true,
-      },
-      name: {
-        type: String,
-        required: true,
-      },
-      rating: {
-        type: Number,
-        required: true,
-      },
-      comment: {
-        type: String,
-        required: true,
-      },
-    },
-  ],
+    required: [true, "Please Enter product availability"],
+    
+  }
+  // ratings: {
+  //   type: Number,
+  //   default: 0,
+  // },
+ 
+  // Stock: {
+  //   type: Number,
+  //   required: [true, "Please Enter product Stock"],
+  //   maxLength: [4, "Stock cannot exceed 4 characters"],
+  //   default: 1,
+  // },
+  // numOfReviews: {
+  //   type: Number,
+  //   default: 0,
+  // },
+  // reviews: [
+  //   {
+  //     user: {
+  //       type: mongoose.Schema.ObjectId,
+  //       ref: "User",
+  //     },
+  //     name: {
+  //       type: String,
+  //       // required: true,
+  //       default:"oil"
+  //     },
+  //     rating: {
+  //       type: Number,
+  //       // required: true,
+  //       default:5
+  //     },
+  //     comment: {
+  //       type: String,
+  //       // required: true,
+  //       default:"very nice"
+  //     },
+  //   },
+  // ],
 
-  user: {
-    type: mongoose.Schema.ObjectId,
-    ref: "User",
-    required: true,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
+  // user: {
+  //   type: mongoose.Schema.ObjectId,
+  //   ref: "User",
+  //   required: true,
+  // },
+  // createdAt: {
+  //   type: Date,
+  //   default: Date.now,
+  // },
 });
 
 module.exports = mongoose.model("Product", productSchema);

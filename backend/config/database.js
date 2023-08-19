@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
-
+const DB_URI="mongodb+srv://Ecommerce-api:KSuFJzWiamgZLOfP@cluster0.ow3zltf.mongodb.net/?retryWrites=true&w=majority";
 const connectDatabase = () => {
   mongoose
-    .connect(process.env.DB_URI, {
+    .connect(DB_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,

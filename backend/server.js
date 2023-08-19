@@ -18,13 +18,13 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
 connectDatabase();
 
 cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
+  cloud_name: "dsy54hxgq",
+  api_key: "418141173417731",
+  api_secret: "Gc6jcRzGJqGOnm1BBL_Q56V4-9I",
 });
-
+// const PORT=4500;
 const server = app.listen(process.env.PORT, () => {
-  console.log(`Server is working on http://localhost:${process.env.PORT}`);
+  console.log(`Server is working on http://localhost:${process.env.PORT}}`);
 });
 
 // Unhandled Promise Rejection
